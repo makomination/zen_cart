@@ -3,6 +3,7 @@
 * @package Pages
 * @copyright Makoto Ishihara
 * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
+* Date : 2016/12/21
 */
 
 //load files on pages below
