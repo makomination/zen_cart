@@ -21,10 +21,24 @@ jQuery(document).ready(function($){
 	//debug
 	console.log('dataToSend', dataToSend)
 
-	$.post('./ajax.php', dataToSend, function(data, textStatus, xhr) {
+	$.post('./ajax/ajax_makoto.php', dataToSend, function(data, textStatus, xhr) {
 		/*optional stuff to do after success */
+
 		console.log('returnData', data)
 	});
+
+/*
+$.ajax({
+	url: './ajax/ajax_makoto.php',
+	type: 'POST',
+	error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
+});
+*/
+
 
 
 	// browser identifying and returning the name of the browser function
