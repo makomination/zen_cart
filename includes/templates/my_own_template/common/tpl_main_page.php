@@ -200,4 +200,20 @@ if (!isset($flag_disable_right) || !$flag_disable_right) {
 <?php /* add any end-of-page code via an observer class */
   $zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
 ?>
+<?php
+/**
+* load the loader JS files
+*/
+if(!empty($RC_loader_files)){
+  foreach($RC_loader_files['jscript'] as $file)
+    if($file['include']) {
+      include($file['src']);
+    } else if(!$RI_CJLoader->get('minify_js') || $file['external']) {
+      echo '<script type="text/javascript" src="'.$file['src'].'"></script>'."\n";
+    } else {
+      echo '<script type="text/javascript" src="min/?f='.$file['src'].'&'.$RI_CJLoader->get('minify_time').'"></script>'."\n";
+    }
+}
+//DEBUG: echo '';
+?>
 </body>
