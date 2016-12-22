@@ -5,6 +5,17 @@ Date: 2016 12/21
 Description: Ajax handler for my_own_template/jscript/makoto.js. Return color code according to browser.
 */
 
+//can not access $db from here
+//define('IS_ADMIN_FLAG', true);
+//require_once('../includes/classes/db/mysql/query_factory.php');
+//$db = new queryFactory();
+
+const MY_SERVER = "127.0.0.1";//yosemiteアップグレード時に変更
+const USER_NAME = 'root';
+const PASSWORD = 'komazawa';
+const DB_NAME = "zencart";
+
+
 $browserName = $_POST['browser_name'];
 $isMobile = $_POST['is_mobile'];
 
@@ -28,5 +39,8 @@ if($errorFlag){
 	echo 'post value error';
 	exit();
 }
+$sql = "SELECT color_code FROM browser_color WHERE browser_name='" .$browserName. "' AND is_mobile='" .$isMobile. "';";
 
-echo "$browserName.$isMobile";
+//$colorCode =
+
+echo $sql;
