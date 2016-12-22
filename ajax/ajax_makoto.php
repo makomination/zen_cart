@@ -10,6 +10,7 @@ Description: Ajax handler for my_own_template/jscript/makoto.js. Return color co
 //require_once('../includes/classes/db/mysql/query_factory.php');
 //$db = new queryFactory();
 
+//write down your server address and MySQL credencial
 define(MY_SERVER, "127.0.0.1");//yosemiteアップグレード時に変更
 define(USER_NAME,'root');
 define(PASSWORD, 'komazawa');
