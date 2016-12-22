@@ -10,10 +10,10 @@ Description: Ajax handler for my_own_template/jscript/makoto.js. Return color co
 //require_once('../includes/classes/db/mysql/query_factory.php');
 //$db = new queryFactory();
 
-const MY_SERVER = "127.0.0.1";//yosemiteアップグレード時に変更
-const USER_NAME = 'root';
-const PASSWORD = 'komazawa';
-const DB_NAME = "zencart";
+define(MY_SERVER, "127.0.0.1");//yosemiteアップグレード時に変更
+define(USER_NAME,'root');
+define(PASSWORD, 'komazawa');
+define(DB_NAME, "zencart");
 
 
 $browserName = $_POST['browser_name'];
@@ -39,8 +39,38 @@ if($errorFlag){
 	echo 'post value error';
 	exit();
 }
+
 $sql = "SELECT color_code FROM browser_color WHERE browser_name='" .$browserName. "' AND is_mobile='" .$isMobile. "';";
 
 //$colorCode =
+//_createMysqli();
+$mysqli = new mysqli(MY_SERVER, USER_NAME, PASSWORD, DB_NAME);
+if( $mysqli->connect_errno ) {
+	echo '<script type="text/javascript">alert("No DB there")</script>';
+	exit;
+}
+$mysqli->set_charset("utf8");
+$resultArray = array();
+$result = $mysqli->query($sql);
+//var_dump($result);
+if($result->num_rows === 1){
+	$colorCode = $result->fetch_assoc()["color_code"];
+	//var_dump($colorCode);
+	echo $colorCode;
+}else{
+	echo 'error happend';
+}
 
-echo $sql;
+/*
+if ($result = $mysqli->query($sql)) {
+	//echo 'SELECT SUCCESS';
+	while ($record = $result->fetch_assoc()) {
+		array_push($resultArray, $record[0][color_code];
+	}
+	$mysqli->close();
+}else {
+	$resultArray = null;
+}
+*/
+
+//echo $sql;
