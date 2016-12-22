@@ -11,7 +11,7 @@ Description: Ajax handler for my_own_template/jscript/makoto.js. Return color co
 //$db = new queryFactory();
 
 //write down your server address and MySQL credencial
-define(MY_SERVER, "127.0.0.1");//yosemiteアップグレード時に変更
+define(MY_SERVER, "127.0.0.1");
 define(USER_NAME,'root');
 define(PASSWORD, 'komazawa');
 define(DB_NAME, "zencart");
@@ -61,17 +61,3 @@ if($result->num_rows === 1){
 }else{
 	echo 'error happend';
 }
-
-/*
-if ($result = $mysqli->query($sql)) {
-	//echo 'SELECT SUCCESS';
-	while ($record = $result->fetch_assoc()) {
-		array_push($resultArray, $record[0][color_code];
-	}
-	$mysqli->close();
-}else {
-	$resultArray = null;
-}
-*/
-
-//echo $sql;

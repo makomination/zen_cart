@@ -23,8 +23,12 @@ jQuery(document).ready(function($){
 
 	$.post('./ajax/ajax_makoto.php', dataToSend, function(data, textStatus, xhr) {
 		/*optional stuff to do after success */
-
 		console.log('returnData', data)
+		$("div#headerWrapper").css("background-color", "#"+data);
+		$("div#indexDefault").css("background-color", "#"+data);
+		$("td#navColumnOne").css("background-color", "#"+data);
+		$("td#navColumnTwo").css("background-color", "#"+data);
+		$("div#bannerSix").css("background-color", "#"+data);
 	});
 
 /*
